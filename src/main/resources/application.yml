@@ -1,25 +1,23 @@
 server:
   port: 9091
 
-# datasource properties
+# Datasource properties
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: Musaddil@l3108
-    url: jdbc:mysql://localhost:3306/jrtp
-    username: root
-# to create table in the database(in not already created)    
+    password: ${DATABASE_PASSWORD}
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+
   jpa:
     hibernate:
       ddl-auto: update
- # to show sql quries      
     show-sql: true
-    
-    
- #SMTP proprerties for mail sending   
+
+# SMTP properties for mail sending
   mail:
     host: smtp.gmail.com
-    password: jojg nlry knbb wndv
+    password: ${MAIL_PASSWORD}
     port: 587
     properties:
       mail:
@@ -27,20 +25,17 @@ spring:
           auth: true
           starttls:
             enable: true
-    username: ayush.chibu@gmail.com
-    
-    
-#Application messages
+    username: ${MAIL_USERNAME}
+
+# Application messages
 app:
-    messages:         #messages can be considered as a Map (key-value)
-      invalidLogin: Invalid Credentials
-      invalidPwds: Password not same
-      pwdNotUpdate: Pwd update failed
-      regSeccess: Registration successfull
-      regFail: Registration failed
-      quoteUrl: https://type.fit/api/quotes;
-      restPwd: Reset Password - Ayush IT
-      pwdCharacters: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+
-      
-      
-      
+  messages:
+    invalidLogin: Invalid Credentials
+    invalidPwds: Passwords do not match
+    pwdNotUpdate: Password update failed
+    regSuccess: Registration successful
+    regFail: Registration failed
+    quoteUrl: https://type.fit/api/quotes
+    resetPwd: Reset Password - Ayush IT
+    pwdCharacters: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+
+
